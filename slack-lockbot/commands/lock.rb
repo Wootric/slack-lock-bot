@@ -9,7 +9,7 @@ module SlackLockbot
         lock = ::Lock.find_by(name: lock_name)
         text =
           if lock
-            other_user = client.web_client.users_info(user: user_id)['user']
+            other_user = client.web_client.users_info(user: lock.user_id)['user']
             "#{lock_name} already locked by <@#{other_user['id']}>"
           else
             ::Lock.create!(
