@@ -17,6 +17,6 @@ A Slack bot for helping you lock and unlock things.
 - [Create a production Slack bot](http://slack.com/services/new/bot)
 - Create an app on Heroku
 - Set `SLACK_API_TOKEN` on Heroku
-- Add your heroku remote `git remote add heroku https://git.heroku.com/your-slack-bot.git`
+- Add your heroku remote `git remote add heroku https://git.heroku.com/your-slack-bot-app.git`
 - Run `bin/deploy`
 - Invite your bot to a channel
