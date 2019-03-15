@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
 
 git push heroku master
+heroku run rake db:migrate --remote heroku
+heroku restart --remote heroku

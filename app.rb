@@ -12,7 +12,7 @@ module SlackLockbot
     end
 
     get '/' do
-      Lock.all.to_json
+      ''
     end
   end
 end
