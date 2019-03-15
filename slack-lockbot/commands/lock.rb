@@ -4,7 +4,7 @@ module SlackLockbot
       command 'lock' do |client, data, _match|
         user_id = data['user']
         user = client.web_client.users_info(user: user_id)['user']
-        lock_name = data['text'].split.drop(2).join(' ')
+        lock_name = data['text'].split.drop(2).join(' ').downcase
 
         lock = ::Lock.find_by(name: lock_name)
         text =
