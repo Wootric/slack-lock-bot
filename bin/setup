@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+set -e
+
+if [ ! -f .env ]; then
+  cp .env.sample .env
+fi
+
+gem list bundler --installed > /dev/null || gem install bundler
+bundle check > /dev/null || foreman run bundle install --binstubs=bin/stubs
+
+bundle exec rake db:environment:set
+bundle exec rake db:drop:all
+bundle exec rake db:create:all
+bundle exec rake db:migrate
+bundle exec rake db:seed
