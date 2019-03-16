@@ -12,6 +12,10 @@ A Slack bot for helping you lock and unlock things.
 - Run `foreman start`
 - Invite your bot to a channel
 
+## Testing
+
+- Run `rspec`
+
 ## Deploy to Heroku
 
 - [Create a production Slack bot](http://slack.com/services/new/bot)
