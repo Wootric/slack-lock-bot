@@ -1,7 +1,7 @@
-module SlackLockbot
+module SlackLockBot
   module Commands
-    class Unlock < SlackRubyBot::Commands::Base
-      command 'unlock' do |client, data, _match|
+    class Lock < SlackRubyBot::Commands::Base
+      command 'lock' do |client, data, _match|
         user_id = data['user']
         user = client.web_client.users_info(user: user_id)['user']
         lock_name = data['text'].split.drop(2).join(' ').downcase
@@ -10,14 +10,13 @@ module SlackLockbot
         text =
           if lock
             other_user = client.web_client.users_info(user: lock.user_id)['user']
-            if user['id'] == other_user['id']
-              lock.delete
-              "#{lock_name} unlocked by <@#{user['id']}>"
-            else
-              "#{lock_name} can only be unlocked by <@#{other_user['id']}>"
-            end
+            "#{lock_name} already locked by <@#{other_user['id']}>"
           else
-            "#{lock_name} lock not found"
+            ::Lock.create!(
+              name: lock_name,
+              user_id: user['id']
+            )
+            "#{lock_name} locked by <@#{user['id']}>"
           end
 
         client.say(channel: data.channel, text: text)

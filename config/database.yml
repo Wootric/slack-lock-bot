@@ -6,11 +6,11 @@ default: &default
 
 development:
   <<: *default
-  database: slack-lockbot_development
+  database: slack-lock-bot_development
 
 test:
   <<: *default
-  database: slack-lockbot_test
+  database: slack-lock-bot_test
 
 production:
   <<: *default

@@ -1,4 +1,4 @@
-module SlackLockbot
+module SlackLockBot
   module Commands
     class List < SlackRubyBot::Commands::Base
       command 'list' do |client, data, _match|

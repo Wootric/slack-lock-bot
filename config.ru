@@ -1,14 +1,14 @@
 $LOAD_PATH.unshift(File.dirname(__FILE__))
 
 require 'dotenv/load'
-require 'slack-lockbot'
+require 'slack-lock-bot'
 require 'app'
 
 Thread.abort_on_exception = true
 
 Thread.new do
   begin
-    SlackLockbot::Bot.run
+    SlackLockBot::Bot.run
   rescue StandardError => e
     STDERR.puts("ERROR: #{e}")
     STDERR.puts(e.backtrace)
@@ -16,4 +16,4 @@ Thread.new do
   end
 end
 
-run SlackLockbot::App
+run SlackLockBot::App

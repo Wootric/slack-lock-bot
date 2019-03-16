@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe SlackLockbot::Commands::List do
+describe SlackLockBot::Commands::List do
   def app
-    SlackLockbot::Bot.instance
+    SlackLockBot::Bot.instance
   end
 
   subject { app }

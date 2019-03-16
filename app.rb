@@ -3,7 +3,7 @@ require 'sinatra/activerecord'
 
 Dir['./models/*.rb'].each { |file| require file }
 
-module SlackLockbot
+module SlackLockBot
   class App < Sinatra::Base
     register Sinatra::ActiveRecordExtension
 

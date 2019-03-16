@@ -1,4 +1,4 @@
-module SlackLockbot
+module SlackLockBot
   class Bot < SlackRubyBot::Bot
     help do
       title 'Lock Bot'
