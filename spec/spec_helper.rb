@@ -25,4 +25,5 @@ RSpec.configure do |config|
   end
 end
 
+ActiveRecord::Base.logger = nil
 ActiveRecord::Migration.maintain_test_schema!
