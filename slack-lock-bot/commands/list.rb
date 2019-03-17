@@ -2,12 +2,13 @@ module SlackLockBot
   module Commands
     class List < SlackRubyBot::Commands::Base
       command 'list' do |client, data, _match|
+        locks = ::Lock.all
         text = ''
 
-        locks = ::Lock.all
-        if locks.count > 0
-          locks.each do |lock|
-            text += ":lock: #{lock.name} <@#{lock.user_id}>\n"
+        if locks.present?
+          locks.each_with_index do |lock, index|
+            text += ":lock: #{lock.name} <@#{lock.user_id}>"
+            text += "\n" if index != locks.size - 1
           end
         else
           text = 'no locks'
