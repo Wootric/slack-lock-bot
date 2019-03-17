@@ -1,15 +1,17 @@
 require 'spec_helper'
 
 describe SlackLockBot::Commands::List do
-  def app
-    SlackLockBot::Bot.instance
-  end
-
-  subject { app }
+  let!(:message) { "#{SlackRubyBot.config.user} list" }
 
   it 'lists locks' do
-    expect(message: "#{SlackRubyBot.config.user} list").to(
-      respond_with_slack_message('no locks')
+    lock = create(:lock)
+
+    expect(message: message).to respond_with_slack_message(
+      ":lock: #{lock.name} <@#{lock.user_id}>\n"
     )
+  end
+
+  it 'lists no locks' do
+    expect(message: message).to respond_with_slack_message('no locks')
   end
 end
