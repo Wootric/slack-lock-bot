@@ -4,11 +4,11 @@ module SlackLockBot
       title 'Lock Bot'
       desc 'This bot helps you lock and unlock things.'
 
-      command 'lock' do
+      command 'lock <thing>' do
         desc 'Lock something.'
       end
 
-      command 'unlock' do
+      command 'unlock <thing>' do
         desc 'Unlock something.'
       end
 
