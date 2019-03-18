@@ -18,7 +18,11 @@ module SlackLockBot
               'nothing to unlock'
             end
 
-          client.say(channel: data.channel, text: text)
+          client.say(
+            channel: data.channel,
+            text: text,
+            thread_ts: data.thread_ts || data.ts
+          )
         else
           lock = ::Lock.find_by(name: lock_name)
           text =
@@ -34,7 +38,11 @@ module SlackLockBot
               "#{lock_name} lock not found"
             end
 
-          client.say(channel: data.channel, text: text)
+          client.say(
+            channel: data.channel,
+            text: text,
+            thread_ts: data.thread_ts || data.ts
+          )
         end
       end
     end

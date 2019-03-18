@@ -19,7 +19,11 @@ module SlackLockBot
             "#{lock_name} locked by <@#{user['id']}>"
           end
 
-        client.say(channel: data.channel, text: text)
+        client.say(
+          channel: data.channel,
+          text: text,
+          thread_ts: data.thread_ts || data.ts
+        )
       end
     end
   end
