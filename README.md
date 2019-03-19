@@ -1,5 +1,7 @@
 # Slack Lock Bot
 
+[![CircleCI](https://circleci.com/gh/Wootric/slack-lock-bot/tree/master.svg?style=shield)](https://circleci.com/gh/Wootric/slack-lock-bot/tree/master)
+
 A Slack bot for helping you lock and unlock things.
 
 ![](images/screenshot.png)
