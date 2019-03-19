@@ -4,6 +4,7 @@
 /coverage/
 /InstalledFiles
 /pkg/
+/spec/fixtures/vcr_cassettes
 /spec/reports/
 /spec/examples.txt
 /test/tmp/
