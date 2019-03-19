@@ -4,8 +4,6 @@
 
 A Slack bot for helping you lock and unlock things.
 
-![](images/screenshot.png)
-
 ## Development
 
 - [Create a development Slack bot](http://slack.com/services/new/bot)
