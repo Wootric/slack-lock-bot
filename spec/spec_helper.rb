@@ -5,11 +5,14 @@ require 'database_cleaner'
 require 'factory_bot'
 require 'sinatra/base'
 require 'sinatra/activerecord'
+require 'simplecov'
 
 Dir['./models/*.rb'].each { |file| require file }
 
 require 'slack-ruby-bot/rspec'
 require 'slack-lock-bot'
+
+SimpleCov.start
 
 RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
