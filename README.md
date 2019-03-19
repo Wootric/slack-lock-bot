@@ -1,6 +1,6 @@
 # Slack Lock Bot
 
-[![CircleCI](https://circleci.com/gh/Wootric/slack-lock-bot/tree/master.svg?style=shield)](https://circleci.com/gh/Wootric/slack-lock-bot/tree/master)
+[![](https://circleci.com/gh/Wootric/slack-lock-bot/tree/master.svg?style=shield)](https://circleci.com/gh/Wootric/slack-lock-bot/tree/master) ![](https://img.shields.io/badge/license-mit-brightgreen.svg)
 
 A Slack bot for helping you lock and unlock things.
 
