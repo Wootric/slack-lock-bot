@@ -14,11 +14,8 @@ gem 'sinatra-activerecord'
 gem 'slack-ruby-bot'
 
 group :development, :test do
-  gem 'foreman'
-end
-
-group :test do
   gem 'database_cleaner'
+  gem 'foreman'
   gem 'rack-test'
   gem 'rspec'
   gem 'simplecov'
