@@ -1,9 +1,7 @@
-require 'active_support/core_ext/array'
-
 class SlackLockBot::Commands::Unlock < SlackRubyBot::Commands::Base
   command 'unlock' do |client, data, _match|
     user_id = data['user']
-    lock_name = data['text'].split.drop(2).join(' ').downcase
+    lock_name = data['text'].split.drop(2).join(' ').downcase.strip
 
     case lock_name
     when 'all'

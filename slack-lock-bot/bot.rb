@@ -1,3 +1,5 @@
+require 'active_support/core_ext/array'
+
 module SlackLockBot
   module Commands; end
 
@@ -6,12 +8,12 @@ module SlackLockBot
       title 'Lock Bot'
       desc 'This bot helps you lock and unlock things.'
 
-      command 'lock <thing>' do
-        desc 'Lock something.'
+      command 'lock <thing, another_thing>' do
+        desc 'Lock one or more things.'
       end
 
-      command 'unlock <thing>' do
-        desc 'Unlock something.'
+      command 'unlock <thing | all>' do
+        desc 'Unlock one thing or all things.'
       end
 
       command 'list' do
