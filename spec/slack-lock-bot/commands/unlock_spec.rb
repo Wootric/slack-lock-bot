@@ -16,9 +16,10 @@ describe SlackLockBot::Commands::Unlock do
   it 'deletes many locks' do
     create(:lock, name: 'test', user_id: 'user')
     create(:lock, name: 'test_2', user_id: 'user')
+    create(:lock, name: 'test_3', user_id: 'user')
 
     expect(message: message('all')).to respond_with_slack_message(
-      'test, test_2 unlocked by <@user>'
+      'test, test_2, and test_3 unlocked by <@user>'
     )
   end
 
