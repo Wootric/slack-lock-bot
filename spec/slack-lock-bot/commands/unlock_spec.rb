@@ -9,7 +9,7 @@ describe SlackLockBot::Commands::Unlock do
     create(:lock, name: 'test', user_id: 'user')
 
     expect(message: message).to respond_with_slack_message(
-      'test unlocked by <@user>'
+      'test unlocked'
     )
   end
 
@@ -19,7 +19,7 @@ describe SlackLockBot::Commands::Unlock do
     create(:lock, name: 'test_3', user_id: 'user')
 
     expect(message: message('all')).to respond_with_slack_message(
-      'test, test_2, and test_3 unlocked by <@user>'
+      'test, test_2, and test_3 unlocked'
     )
   end
 

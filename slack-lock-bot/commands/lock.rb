@@ -21,7 +21,7 @@ class SlackLockBot::Commands::Lock < SlackRubyBot::Commands::Base
     text = ''
 
     unless locked_by_user.empty?
-      text << "#{locked_by_user.to_sentence} locked by <@#{user_id}>"
+      text << "#{locked_by_user.to_sentence} locked"
     end
 
     unless locked_by_other_users.empty?

@@ -9,7 +9,7 @@ class SlackLockBot::Commands::Unlock < SlackRubyBot::Commands::Base
       text = if locks.present?
                lock_names = locks.map { |lock| lock.name }
                locks.delete_all
-               "#{lock_names.to_sentence} unlocked by <@#{user_id}>"
+               "#{lock_names.to_sentence} unlocked"
              else
                'no locks found'
              end
@@ -18,7 +18,7 @@ class SlackLockBot::Commands::Unlock < SlackRubyBot::Commands::Base
       text = if lock.present?
                if user_id == lock.user_id
                  lock.delete
-                 "#{lock_name} unlocked by <@#{user_id}>"
+                 "#{lock_name} unlocked"
                else
                  "#{lock_name} can only be unlocked by <@#{lock.user_id}>"
                end

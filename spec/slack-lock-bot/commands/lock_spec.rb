@@ -7,13 +7,13 @@ describe SlackLockBot::Commands::Lock do
 
   it 'creates a lock if it does not exist' do
     expect(message: message('test')).to respond_with_slack_message(
-      'test locked by <@user>'
+      'test locked'
     )
   end
 
   it 'creates locks if they do not exist' do
     expect(message: message('test', 'test_2')).to respond_with_slack_message(
-      'test and test_2 locked by <@user>'
+      'test and test_2 locked'
     )
   end
 
@@ -21,7 +21,7 @@ describe SlackLockBot::Commands::Lock do
     create(:lock, name: 'test_2')
 
     expect(message: message('test', 'test_2')).to respond_with_slack_message(
-      "test locked by <@user>\ntest_2 locked by other user"
+      "test locked\ntest_2 locked by other user"
     )
   end
 
