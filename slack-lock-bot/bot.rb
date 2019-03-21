@@ -36,7 +36,9 @@ module SlackLockBot
       'lunch' => 'enjoy your lunch',
       'dinner' => 'enjoy your dinner',
       'brb' => 'see you soon',
-      'chai time' => 'enjoy your chai'
+      'chai time' => 'enjoy your chai',
+      'running' => 'have a great run',
+      'workout' => 'have a great workout'
     }
 
     MatchPhrases.each do |phrase, response_phrase|
