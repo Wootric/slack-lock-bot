@@ -30,5 +30,19 @@ module SlackLockBot
         thread_ts: data.thread_ts || data.ts
       )
     end
+
+    MatchPhrases = {
+      'thanks' => 'your welcome'
+    }
+
+    MatchPhrases.each do |phrase, response_phrase|
+      match(/#{phrase} #{SlackRubyBot.config.user}/) do |client, data, match|
+        client.say(
+          channel: data.channel,
+          text: response_phrase,
+          thread_ts: data.thread_ts || data.ts
+        )
+      end
+    end
   end
 end
