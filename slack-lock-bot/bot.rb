@@ -32,7 +32,9 @@ module SlackLockBot
     end
 
     MatchPhrases = {
-      'thanks' => "you're welcome"
+      'thanks' => "you're welcome",
+      'lunch' => 'enjoy your lunch',
+      'dinner' => 'enjoy your dinner'
     }
 
     MatchPhrases.each do |phrase, response_phrase|
