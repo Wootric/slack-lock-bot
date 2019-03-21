@@ -10,8 +10,8 @@ describe SlackLockBot::Bot do
   it_behaves_like 'a slack ruby bot'
 
   it 'responds to various words' do
-    SlackLockBot::Bot::MatchWords.each do |goodbye|
-      expect(message: goodbye).to respond_with_slack_message(goodbye)
+    SlackLockBot::Bot::MatchWords.each do |word|
+      expect(message: word).to respond_with_slack_message(word)
     end
   end
 end
