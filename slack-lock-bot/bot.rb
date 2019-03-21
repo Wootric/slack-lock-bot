@@ -38,7 +38,8 @@ module SlackLockBot
       'brb' => 'see you soon',
       'chai time' => 'enjoy your chai',
       'running' => 'have a great run',
-      'workout' => 'have a great workout'
+      'workout' => 'have a great workout',
+      '\?' => '42'
     }
 
     MatchPhrases.each do |phrase, response_phrase|
