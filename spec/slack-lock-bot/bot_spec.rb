@@ -9,11 +9,9 @@ describe SlackLockBot::Bot do
 
   it_behaves_like 'a slack ruby bot'
 
-  it 'says goodbye' do
-    %w(adios bye goodbye).each do |goodbye|
-      expect(message: "#{SlackRubyBot.config.user} #{goodbye}").to(
-        respond_with_slack_message(goodbye)
-      )
+  it 'responds to various words' do
+    SlackLockBot::Bot::MatchWords.each do |goodbye|
+      expect(message: goodbye).to respond_with_slack_message(goodbye)
     end
   end
 end

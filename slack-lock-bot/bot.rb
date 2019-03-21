@@ -19,16 +19,14 @@ module SlackLockBot
       command 'list' do
         desc 'List locks.'
       end
-
-      command 'adios | bye | goodbye' do
-        desc 'Says goodbye.'
-      end
     end
 
-    command 'adios', 'bye', 'goodbye' do |client, data, match|
+    MatchWords = %w(adios :wave: :success: :parrot: :cry:)
+
+    match Regexp.new(MatchWords.join('|')) do |client, data, match|
       client.say(
         channel: data.channel,
-        text: match[:command],
+        text: match[0],
         thread_ts: data.thread_ts || data.ts
       )
     end
