@@ -32,14 +32,14 @@ module SlackLockBot
     end
 
     MatchPhrases = {
-      'thanks' => "you're welcome",
+      "thanks #{SlackRubyBot.config.user}" => "you're welcome",
       'lunch' => 'enjoy your lunch',
       'dinner' => 'enjoy your dinner',
       'brb' => 'see you soon'
     }
 
     MatchPhrases.each do |phrase, response_phrase|
-      match(/#{phrase} #{SlackRubyBot.config.user}/) do |client, data, match|
+      match(Regexp.new(phrase)) do |client, data, match|
         client.say(
           channel: data.channel,
           text: response_phrase,
