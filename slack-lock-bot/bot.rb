@@ -21,17 +21,11 @@ module SlackLockBot
       end
     end
 
-    MatchWords = %w(adios :wave: :success: :parrot: :cry:)
-
-    match Regexp.new(MatchWords.join('|')) do |client, data, match|
-      client.say(
-        channel: data.channel,
-        text: match[0],
-        thread_ts: data.thread_ts || data.ts
-      )
-    end
-
     MatchPhrases = {
+      'adios' => 'adios',
+      ':wave:' => ':wave:',
+      ':success:' => ':success:',
+      ':parrot:' => ':parrot:',
       "thanks #{SlackRubyBot.config.user}" => "you're welcome",
       'lunch' => 'enjoy your lunch',
       'dinner' => 'enjoy your dinner',
@@ -42,11 +36,11 @@ module SlackLockBot
       '\?' => '42'
     }
 
-    MatchPhrases.each do |phrase, response_phrase|
-      match(Regexp.new(phrase, true)) do |client, data, match|
+    MatchPhrases.each do |pattern, text|
+      match(Regexp.new(pattern, true)) do |client, data, match|
         client.say(
           channel: data.channel,
-          text: response_phrase,
+          text: text,
           thread_ts: data.thread_ts || data.ts
         )
       end
