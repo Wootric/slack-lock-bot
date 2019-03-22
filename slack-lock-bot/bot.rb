@@ -21,7 +21,7 @@ module SlackLockBot
       end
     end
 
-    MatchPhrases = {
+    MatchingPhrases = {
       'adios' => 'adios',
       ':wave:' => ':wave:',
       ':success:' => ':success:',
@@ -33,14 +33,15 @@ module SlackLockBot
       'chai time' => 'enjoy your chai',
       'running' => 'have a great run',
       'workout' => 'have a great workout',
-      '\?' => '42'
+      '\?' => '42',
+      'fyi' => 'thanks for letting me know'
     }
 
-    MatchPhrases.each do |pattern, text|
-      match(Regexp.new(pattern, true)) do |client, data, match|
+    MatchingPhrases.each do |phrase, reply|
+      match(Regexp.new(phrase, true)) do |client, data, match|
         client.say(
           channel: data.channel,
-          text: text,
+          text: reply,
           thread_ts: data.thread_ts || data.ts
         )
       end
