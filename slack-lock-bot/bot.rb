@@ -26,13 +26,12 @@ module SlackLockBot
       ':wave:' => ':wave:',
       ':success:' => ':success:',
       ':parrot:' => ':parrot:',
-      "thanks #{SlackRubyBot.config.user}" => "you're welcome",
       'lunch' => 'enjoy your lunch',
       'dinner' => 'enjoy your dinner',
       'brb' => 'see you soon',
       'chai time' => 'enjoy your chai',
-      'running' => 'have a great run',
-      'workout' => 'have a great workout',
+      '<< running' => 'have a great run',
+      '<< workout' => 'have a great workout',
       '\?' => '42',
       'fyi' => 'thanks for letting me know'
     }
