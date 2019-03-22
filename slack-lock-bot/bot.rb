@@ -30,6 +30,7 @@ module SlackLockBot
       'dinner' => 'enjoy your dinner',
       'brb' => 'see you soon',
       'chai time' => 'enjoy your chai',
+      '<< food' => 'enjoy your food',
       '<< running' => 'have a great run',
       '<< workout' => 'have a great workout',
       '\?' => '42',
