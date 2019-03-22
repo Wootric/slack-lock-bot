@@ -9,6 +9,17 @@ fi
 gem list bundler --installed > /dev/null || gem install bundler
 bundle check > /dev/null || foreman run bundle install --binstubs=bin/stubs
 
+for ENV in development test
+do
+  DB_NAME="slack-lock-bot_$ENV"
+  if psql -lqt | cut -d \| -f 1 | grep -qw $DB_NAME
+  then
+    continue
+  else
+    createdb $DB_NAME
+  fi
+done
+
 bundle exec rake db:environment:set
 bundle exec rake db:drop:all
 bundle exec rake db:create:all
