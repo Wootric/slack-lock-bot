@@ -33,7 +33,6 @@ module SlackLockBot
       '<< food' => 'enjoy your food',
       '<< running' => 'have a great run',
       '<< workout' => 'have a great workout',
-      '\?' => '42',
       'fyi' => 'thanks for letting me know'
     }
 
