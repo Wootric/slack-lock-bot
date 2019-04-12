@@ -2,6 +2,8 @@
 
 [![](https://circleci.com/gh/Wootric/slack-lock-bot/tree/master.svg?style=shield)](https://circleci.com/gh/Wootric/slack-lock-bot/tree/master) ![](https://img.shields.io/badge/license-mit-brightgreen.svg)
 
+![](images/screenshot.png)
+
 A Slack bot to help you lock and unlock things.
 
 At Wootric, we use this bot to lock and unlock deployment for different environments.
