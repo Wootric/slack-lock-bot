@@ -12,6 +12,8 @@ class SlackLockBot::Commands::List < SlackRubyBot::Commands::Base
       text = 'no locks'
     end
 
+    ::Stat.create!(user_id: data['user'], command: :list)
+
     client.say(
       channel: data.channel,
       text: text,

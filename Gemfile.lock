@@ -55,6 +55,7 @@ GEM
     gli (2.18.0)
     hashdiff (0.3.8)
     hashie (3.6.0)
+    hirb (0.7.3)
     i18n (1.6.0)
       concurrent-ruby (~> 1.0)
     json (2.2.0)
@@ -133,6 +134,7 @@ DEPENDENCIES
   dotenv
   factory_bot
   foreman
+  hirb
   pg
   puma
   rack-test

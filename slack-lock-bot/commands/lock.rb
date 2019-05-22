@@ -1,8 +1,12 @@
 class SlackLockBot::Commands::Lock < SlackRubyBot::Commands::Base
   command 'lock' do |client, data, _match|
     user_id = data['user']
-    lock_names = data['text'].split.drop(2).join(' ').downcase
-      .split(',').map(&:strip)
+    lock_names = data['text'].split
+                             .drop(2)
+                             .join(' ')
+                             .downcase
+                             .split(',')
+                             .map(&:strip)
 
     locked_by_user = []
     locked_by_other_users = []

@@ -5,6 +5,12 @@ FactoryBot.define do
 
   factory :lock do
     name
-    user_id  { SecureRandom.hex(4) }
+    user_id { SecureRandom.hex(4) }
+  end
+
+  factory :stat do
+    name
+    user_id { SecureRandom.hex(4) }
+    command { %w(list lock unlock).sample }
   end
 end

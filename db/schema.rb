@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_15_194503) do
+ActiveRecord::Schema.define(version: 2019_05_22_202254) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,12 @@ ActiveRecord::Schema.define(version: 2019_03_15_194503) do
     t.string "name"
     t.string "user_id"
     t.index ["name"], name: "index_locks_on_name", unique: true
+  end
+
+  create_table "stats", force: :cascade do |t|
+    t.string "name"
+    t.string "user_id"
+    t.string "command"
   end
 
 end
