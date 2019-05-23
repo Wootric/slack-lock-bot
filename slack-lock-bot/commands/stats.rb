@@ -3,31 +3,23 @@ require 'hirb'
 class SlackLockBot::Commands::Stats < SlackRubyBot::Commands::Base
   command 'stats' do |client, data, _match|
     text = ''
-    stats = {}
+    lock_name = data['text'].split.drop(2).join(' ').downcase.strip
 
-    ::Stat.all.each do |stat|
-      stats[stat.name] ||= {}
-      stats[stat.name][stat.user_id] ||= {}
-      stats[stat.name][stat.user_id][stat.command] ||= 0
-      stats[stat.name][stat.user_id][stat.command] += 1
-    end
+    stats = ::Stat.where(name: lock_name)
+                  .group_by(&:user_id)
+                  .map { |k, vs| [k, vs.tally_by(&:command)] }
+                  .to_h
 
-    stats.each do |k, v|
-      rows = []
-      v.each do |user_id, totals|
-        row = {}
-        row['user_id'] = "<@#{user_id}>"
-        row.merge!(totals)
-        rows << row
+    if stats.present?
+      rows = stats.map do |user_id, totals|
+        { 'user_id' => "<@#{user_id}>" }.merge(totals)
       end
-
-      text << "*#{k}*\n"
       text << "```\n"
       text << Hirb::Helpers::AutoTable.render(rows, description: false)
-      text << "\n```\n\n"
+      text << "\n```"
+    else
+      text = 'no lock found'
     end
-
-    text.strip!
 
     client.say(
       channel: data.channel,

@@ -1,4 +1,5 @@
 require 'active_support/core_ext/array'
+require_relative 'core_ext/enumerable'
 
 module SlackLockBot
   module Commands; end
@@ -18,6 +19,10 @@ module SlackLockBot
 
       command 'list' do
         desc 'List locks.'
+      end
+
+      command 'stats <thing>' do
+        desc 'Get stats for one thing.'
       end
     end
   end
