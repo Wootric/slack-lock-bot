@@ -5,7 +5,7 @@ describe SlackLockBot::Commands::Stats do
     "#{SlackRubyBot.config.user} stats #{cmd}"
   end
 
-  it 'returns stats for a lock' do
+  it 'returns stats' do
     user_id_1 = '5d1f0581'
     user_id_2 = 'ecad5510'
 
@@ -33,9 +33,9 @@ describe SlackLockBot::Commands::Stats do
     ].join("\n"))
   end
 
-  it 'does not return stats if lock does not exist' do
+  it 'does not return stats' do
     expect(message: message('app')).to respond_with_slack_message(
-      'no lock found'
+      'no stats found'
     )
   end
 end

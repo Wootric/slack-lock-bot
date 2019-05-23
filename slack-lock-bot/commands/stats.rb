@@ -18,7 +18,7 @@ class SlackLockBot::Commands::Stats < SlackRubyBot::Commands::Base
       text << Hirb::Helpers::AutoTable.render(rows, description: false)
       text << "\n```"
     else
-      text = 'no lock found'
+      text = 'no stats found'
     end
 
     client.say(
