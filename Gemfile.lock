@@ -14,6 +14,15 @@ GEM
       zeitwerk (~> 2.2, >= 2.2.2)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
+    async (1.26.1)
+      console (~> 1.0)
+      nio4r (~> 2.3)
+      timers (~> 4.1)
+    async-io (1.29.0)
+      async (~> 1.14)
+    async-websocket (0.8.0)
+      async-io
+      websocket-driver (~> 0.7.0)
     awesome_print (1.8.0)
     celluloid (0.17.4)
       celluloid-essentials
@@ -37,6 +46,7 @@ GEM
     celluloid-supervision (0.20.6)
       timers (>= 4.1.1)
     concurrent-ruby (1.1.6)
+    console (1.8.2)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
     database_cleaner (1.8.5)
@@ -127,6 +137,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  async-websocket (~> 0.8.0)
   awesome_print
   celluloid-io
   database_cleaner
@@ -142,7 +153,7 @@ DEPENDENCIES
   simplecov
   sinatra
   sinatra-activerecord
-  slack-ruby-bot
+  slack-ruby-bot (~> 0.15.0)
   vcr
   webmock
 
