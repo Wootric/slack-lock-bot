@@ -6,6 +6,7 @@ require 'factory_bot'
 require 'sinatra/base'
 require 'sinatra/activerecord'
 require 'simplecov'
+require 'vcr'
 
 Dir['./models/*.rb'].each { |file| require file }
 
