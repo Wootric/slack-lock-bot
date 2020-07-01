@@ -71,6 +71,9 @@ GEM
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
     nio4r (2.5.2)
+    octokit (4.18.0)
+      faraday (>= 0.9)
+      sawyer (~> 0.8.0, >= 0.5.3)
     pg (1.2.3)
     public_suffix (4.0.5)
     puma (4.3.5)
@@ -96,6 +99,9 @@ GEM
     rspec-support (3.9.3)
     ruby2_keywords (0.0.2)
     safe_yaml (1.0.5)
+    sawyer (0.8.2)
+      addressable (>= 2.3.5)
+      faraday (> 0.8, < 2.0)
     simplecov (0.18.5)
       docile (~> 1.1)
       simplecov-html (~> 0.11)
@@ -118,6 +124,7 @@ GEM
       gli
       hashie
       websocket-driver
+    table_print (1.5.7)
     thread_safe (0.3.6)
     tilt (2.0.10)
     timers (4.3.0)
@@ -145,6 +152,7 @@ DEPENDENCIES
   factory_bot
   foreman
   hirb
+  octokit (~> 4.18)
   pg
   puma
   rack-test
@@ -154,6 +162,7 @@ DEPENDENCIES
   sinatra
   sinatra-activerecord
   slack-ruby-bot (~> 0.15.0)
+  table_print (~> 1.5, >= 1.5.7)
   vcr
   webmock
 

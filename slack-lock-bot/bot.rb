@@ -1,5 +1,7 @@
 require 'active_support/core_ext/array'
 require_relative 'core_ext/enumerable'
+require 'octokit'
+require 'table_print'
 
 module SlackLockBot
   module Commands; end
@@ -19,6 +21,10 @@ module SlackLockBot
 
       command 'list' do
         desc 'List locks.'
+      end
+
+      command 'prs' do
+        desc 'Fetch pull requests.'
       end
 
       command 'stats <thing>' do
